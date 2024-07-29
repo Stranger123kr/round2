@@ -1,0 +1,18 @@
+.list1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 2px;
+  height: 40%;
+  background-color: white;
+}
+.list2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 2px;
+  height: 40%;
+  background-color: #fb8e2f;
+}
