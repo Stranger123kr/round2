@@ -8,11 +8,7 @@ import {
   BsFillQuestionCircleFill,
   BsThreeDotsVertical,
 } from "react-icons/bs";
-import {
-  IoCheckmarkCircleOutline,
-  IoChevronDownCircleOutline,
-  IoReload,
-} from "react-icons/io5";
+import { IoCheckmarkCircleOutline, IoReload } from "react-icons/io5";
 import {
   MdOutlineRadioButtonUnchecked,
   MdOutlineFileDownload,
@@ -75,12 +71,12 @@ const HomePage = () => {
           {/* {payout list} */}
           <div className="payout text-white bg-[#080d29] h-[5rem] px-[2rem] flex justify-between items-center">
             <div className="payoutOption">
-              <ul className="flex items-center gap-5">
+              <ul className="flex items-center font-[500] gap-5">
                 <HiArrowTopRightOnSquare className="text-2xl" />
                 <li className="first-letter:text-[1.2rem]">
                   Payouts <span className="ml-2">/</span>
                 </li>
-                <li className="bg-[#0b1a3e] first-letter:text-[1.2rem] text-[#6dbbff] p-[0.4rem] rounded-[0.3rem]">
+                <li className="bg-[#0b1a3e] first-letter:text-[1.2rem] text-[#6dbbff] p-[0.5rem] rounded-[0.3rem]">
                   Single
                 </li>
 
@@ -93,9 +89,9 @@ const HomePage = () => {
               </ul>
             </div>
             <div className="payoutAdOption  flex items-center gap-5">
-              <button className="flex items-center bg-[#4e7fff] text-white px-4 py-[0.4rem] font-medium text-sm rounded-sm relative">
+              <button className="flex items-center bg-transparent border-[#428cd6] text-[#428cd6] border-[1px] px-4 py-[0.4rem] font-medium text-sm rounded-sm relative">
                 <span className="mr-2">+ PAYOUT</span>
-                <span className="border-l-[1px] border-red-500 p-2">
+                <span className="border-l-[1px] border-[#2c3c52] p-2">
                   <IoIosArrowDown className="ml-2" />
                 </span>
               </button>
@@ -115,7 +111,7 @@ const HomePage = () => {
 
           <div className="payout text-white bg-[#111739] h-[5.5rem] px-[2rem] flex items-center justify-between">
             <div className="quickList flex items-center gap-2">
-              <span className="text-[#8e9bad]">Quick Filter</span> :
+              <span className="text-white">Quick Filter</span> :
               <div className="list1 flex items-center text-[#339dff] ml-3 w-auto px-[1rem] py-[0.5rem] bg-[#13234c] relative">
                 <IoCheckmarkCircleOutline className="text-white bg-[#339dff] rounded-full" />
                 <span className="ml-3">All Payouts</span>
@@ -160,11 +156,15 @@ const HomePage = () => {
                   <BiSquareRounded />
                   <span className="text-[#5783b4]">Showing 1-5 payouts</span>
                   <GoDotFill />
-                  <span className="text-[#8e9bad]">
-                    Sort by{" "}
-                    <span className="text-[#729ad6]">latest creation date</span>
-                  </span>
-                  <IoIosArrowDown className="text-[#729ad6]" />
+                  <div className="sortBy flex gap-0">
+                    <span className="text-[#8e9bad]">
+                      Sort by{" "}
+                      <span className="text-[#729ad6]">
+                        latest creation date
+                      </span>
+                    </span>
+                    <IoIosArrowDown className="text-[#729ad6]" />
+                  </div>
                 </div>
                 <div className="flex gap-3 text-[#99c2ff]">
                   <div className="options1 flex gap-3 items-center">
@@ -188,23 +188,23 @@ const HomePage = () => {
 
               {/* {third part} */}
 
-              <div className="min-w-full py-8 border-b-[1px] border-[#2c3c52] overflow-hidden">
-                <table className="min-w-full leading-normal">
+              <div className="min-w-full py-8 overflow-hidden">
+                <table className="min-w-full">
                   <thead>
                     <tr className="text-white">
                       <th className="px-5 py-3  text-left text-xs font-semibold uppercase tracking-wider">
                         Created At
                       </th>
-                      <th className="px-5 py-3  text-left text-xs font-semibold uppercase tracking-wider">
+                      <th className="pl-[10rem] py-3  text-left text-xs font-semibold uppercase tracking-wider">
                         Amount
                       </th>
-                      <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+                      <th className="px-[3rem] py-3 text-left text-xs font-semibold uppercase tracking-wider">
                         Status
                       </th>
                       <th className="px-5 py-3  text-left text-xs font-semibold uppercase tracking-wider">
                         Contact
                       </th>
-                      <th className="px-5 py-3  text-left text-xs font-semibold uppercase tracking-wider">
+                      <th className="px-[6rem] py-3  text-left text-xs font-semibold uppercase tracking-wider">
                         Created By
                       </th>
                       <th className="px-5 py-3 flex gap-1 items-center text-xs font-semibold uppercase tracking-wider">
@@ -219,16 +219,19 @@ const HomePage = () => {
                         <td className="px-5 py-5 text-white text-sm">
                           {item.createdAt}
                         </td>
-                        <td className="px-5 py-5 text-white text-sm">
+                        <td className="pl-[10rem] py-5 text-white text-sm">
                           {item.amount}
                         </td>
-                        <td className="px-5 py-5 text-white text-sm">
-                          {item.status}
+                        <td className="px-[3rem]  py-5">
+                          <span className="bg-[#cb733d] text-sm px-2 py-[0.1rem] rounded-full text-yellow-300">
+                            {" "}
+                            {item.status}
+                          </span>
                         </td>
                         <td className="px-5 py-5 text-white text-sm">
                           {item.contact}
                         </td>
-                        <td className="px-5 py-5 text-white text-sm">
+                        <td className="px-[6rem] py-5 text-white text-sm">
                           {item.createdBy}
                         </td>
                         <td className="px-5 py-5 text-white text-sm">
@@ -243,11 +246,11 @@ const HomePage = () => {
 
             {/* {row/pages} */}
 
-            <div className="lowerSection bg-[#1d2345] h-[15rem]">
-              <div className="rowPages absolute right-[5rem]">
-                <button className="text-[#428cd6] border-[1px] py-[0.2rem] px-[1.5rem] border-none bg-[#2d3540]">
+            <div className="lowerSection border-t-[1px] border-[#2c3c52] bg-[#1d2345] h-[15rem]">
+              <div className="rowPages mt-4 absolute right-[5rem]">
+                <button className="text-[#428cd6] shadow-inner border-[1px] py-[0.2rem] px-[1.2rem] border-none bg-[#2d3540]">
                   10
-                  <FaCaretDown className="inline text-white mb-3 ml-2" />
+                  <FaCaretDown className="inline text-white mb-3 ml-4" />
                 </button>
 
                 <span className="text-white ml-3"> rows/pages</span>
