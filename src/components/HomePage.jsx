@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { IoIosSearch, IoIosArrowDown } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
@@ -15,6 +15,8 @@ import {
 } from "react-icons/md";
 import { BiSquareRounded } from "react-icons/bi";
 import { GoDotFill } from "react-icons/go";
+import { FiHome } from "react-icons/fi";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import "../App.css";
 const HomePage = () => {
   // some dummy data
@@ -61,11 +63,90 @@ const HomePage = () => {
     },
   ];
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <>
       <div className="Razorpay flex">
-        <div className="leftSidebar basis-[10%] h-screen bg-red-200">
-          <h3>nav</h3>
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className={`leftSidebar sticky  z-50 hover:basis-[20%] hover:pr-[5rem] basis-[5%]  hover:pl-[1rem] pl-[1rem] pr-[0rem] bg-[#242a4a]
+          
+            ${isHovered ? "basis-[20%]" : "basis-[5%]"} 
+                  transition-all duration-300 bg-gray-800 text-white`}
+        >
+          <div>
+            <img
+              src="https://play-lh.googleusercontent.com/ogqO48I-0brEz5-HMRuwPIFf8J3FPkK4H46NY501ONkdQDMFtBn_g2uPvrbP9OskHAGp=w240-h480-rw"
+              alt="Default Image"
+              className={`mt-5 w-[3rem]  transition-opacity duration-300 ${
+                isHovered ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <img
+              src="https://x.razorpay.com/dist/assets/img/RazorpayX-logo.svg"
+              alt="Hover Image"
+              className={`mt-4 w-[15rem] transition-opacity duration-300 ${
+                isHovered ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          </div>
+
+          <div
+            className={`${
+              isHovered ? "pr-[3rem]" : ""
+            }options flex  mt-[3rem] flex-col gap-[2rem]`}
+          >
+            <div className="">
+              <FiHome className="text-[1.5rem] inline" />
+              <span
+                className={`transition-opacity duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Home
+              </span>
+            </div>
+            <div className="flex">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem] inline" />
+              <span
+                className={`transition-opacity duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Home
+              </span>
+            </div>
+            <div className="flex">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem] inline" />
+              <span
+                className={`transition-opacity duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Home
+              </span>
+            </div>
+            <div className="flex">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
+            </div>
+          </div>
+          <span className="border-t-[1px] border-[#2c3c52]"></span>
+          <div className="options border-t-[1px] border-[#2c3c52] mt-[2rem] flex flex-col gap-10">
+            <div className="flex mt-5">
+              <FiHome className="text-[1.5rem]" />
+            </div>
+            <div className="flex">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
+            </div>
+            <div className="flex">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
+            </div>
+            <div className="flex">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
+            </div>
+          </div>
         </div>
         <div className="mainContent basis-[100%]">
           {/* {payout list} */}
@@ -109,7 +190,7 @@ const HomePage = () => {
 
           {/* {payout quick filter} */}
 
-          <div className="payout text-white bg-[#111739] h-[5.5rem] px-[2rem] flex items-center justify-between">
+          <div className="payout text-white bg-[#1d2345] h-[5.5rem] px-[2rem] flex items-center justify-between">
             <div className="quickList flex items-center gap-2">
               <span className="text-white">Quick Filter</span> :
               <div className="list1 flex items-center text-[#339dff] ml-3 w-auto px-[1rem] py-[0.5rem] bg-[#13234c] relative">
@@ -137,10 +218,10 @@ const HomePage = () => {
 
           {/* {Main data of payment} */}
 
-          <div className="paymentData bg-[#1d2345] h-screen relative">
+          <div className="paymentData bg-[#1d2345] relative">
             <div className="dataLayout px-[3%] py-5">
               {/* {first part} */}
-              <div className="payout text-white bg-[#282d4d] relative top-0 h-[4rem] w-full z-50  flex items-center">
+              <div className="payout text-white bg-[#282d4d] relative top-0 h-[4rem] w-full z-30  flex items-center">
                 <span className="bg-[#bd7a03] mx-[1rem] px-[0.7rem] py-[0.2rem] text-black font-[600] text-[0.6rem]">
                   TEST
                 </span>
