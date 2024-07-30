@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { IoIosSearch, IoIosArrowDown } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
-import { TbSpeakerphone } from "react-icons/tb";
-import {
-  BsPersonDown,
-  BsFillQuestionCircleFill,
-  BsThreeDotsVertical,
-} from "react-icons/bs";
+import { BsFillQuestionCircleFill, BsThreeDotsVertical } from "react-icons/bs";
 import { IoCheckmarkCircleOutline, IoReload } from "react-icons/io5";
+import { BiSquareRounded } from "react-icons/bi";
+import { GoDotFill } from "react-icons/go";
+import { FiHome, FiPlus } from "react-icons/fi";
 import {
+  MdOutlineAccountBalanceWallet,
+  MdOutlinePerson,
+  MdOutlinePayments,
   MdOutlineRadioButtonUnchecked,
   MdOutlineFileDownload,
 } from "react-icons/md";
-import { BiSquareRounded } from "react-icons/bi";
-import { GoDotFill } from "react-icons/go";
-import { FiHome } from "react-icons/fi";
-import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { TbReceiptTax, TbReportSearch, TbSpeakerphone } from "react-icons/tb";
+import { PiTelegramLogoDuotone } from "react-icons/pi";
 import "../App.css";
 const HomePage = () => {
   // some dummy data
@@ -71,84 +70,135 @@ const HomePage = () => {
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className={`leftSidebar sticky  z-50 hover:basis-[20%] hover:pr-[5rem] basis-[5%]  hover:pl-[1rem] pl-[1rem] pr-[0rem] bg-[#242a4a]
-          
-            ${isHovered ? "basis-[20%]" : "basis-[5%]"} 
-                  transition-all duration-300 bg-gray-800 text-white`}
+          className={`leftSidebar bg-[#242a4a] transition-all duration-300 text-white ${
+            isHovered ? "w-[18rem]" : "w-[5rem]"
+          }`}
         >
-          <div>
+          <div className="my-3">
             <img
               src="https://play-lh.googleusercontent.com/ogqO48I-0brEz5-HMRuwPIFf8J3FPkK4H46NY501ONkdQDMFtBn_g2uPvrbP9OskHAGp=w240-h480-rw"
               alt="Default Image"
-              className={`mt-5 w-[3rem]  transition-opacity duration-300 ${
+              className={` w-[3rem] fixed left-2  transition-opacity duration-300 ${
                 isHovered ? "opacity-0" : "opacity-100"
               }`}
             />
             <img
               src="https://x.razorpay.com/dist/assets/img/RazorpayX-logo.svg"
               alt="Hover Image"
-              className={`mt-4 w-[15rem] transition-opacity duration-300 ${
+              className={`w-[12rem] ml-3 fixed left-2  transition-opacity duration-300 ${
                 isHovered ? "opacity-100" : "opacity-0"
               }`}
             />
           </div>
 
-          <div
-            className={`${
-              isHovered ? "pr-[3rem]" : ""
-            }options flex  mt-[3rem] flex-col gap-[2rem]`}
-          >
-            <div className="">
-              <FiHome className="text-[1.5rem] inline" />
-              <span
-                className={`transition-opacity duration-200 ${
-                  isHovered ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                Home
-              </span>
-            </div>
-            <div className="flex">
-              <MdOutlineAccountBalanceWallet className="text-[1.5rem] inline" />
-              <span
-                className={`transition-opacity duration-200 ${
-                  isHovered ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                Home
-              </span>
-            </div>
-            <div className="flex">
-              <MdOutlineAccountBalanceWallet className="text-[1.5rem] inline" />
-              <span
-                className={`transition-opacity duration-200 ${
-                  isHovered ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                Home
-              </span>
-            </div>
-            <div className="flex">
-              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
-            </div>
-          </div>
-          <span className="border-t-[1px] border-[#2c3c52]"></span>
-          <div className="options border-t-[1px] border-[#2c3c52] mt-[2rem] flex flex-col gap-10">
-            <div className="flex mt-5">
+          <div className="flex fixed flex-col pl-4 mt-[5rem] gap-[2rem]">
+            <li className="flex items-center gap-2">
               <FiHome className="text-[1.5rem]" />
-            </div>
-            <div className="flex">
-              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
-            </div>
-            <div className="flex">
-              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
-            </div>
-            <div className="flex">
-              <MdOutlineAccountBalanceWallet className="text-[1.5rem]" />
+              <span
+                className={`transition-opacity overflow-hidden duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Home
+              </span>
+            </li>
+
+            <li className="hover:bg-[#383e5a] py-2 px-[0.2rem] flex gap-3 items-center">
+              <HiArrowTopRightOnSquare className="text-[1.5rem]" />
+              <span
+                className={`transition-opacity overflow-hidden duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Payouts
+              </span>
+              <span className="bg-[#008558] relative right-3 px-[0.7rem] py-[0.2rem] text-white font-[600] text-[0.5rem] ml-4 rounded-full">
+                NEW
+              </span>
+              <FiPlus className="bg-[#4a5069] text-[1.5rem] p-1" />
+            </li>
+            <li className="flex gap-3 items-center">
+              <MdOutlineAccountBalanceWallet className="text-[1.5rem] hover:text-[1.9rem]" />
+              <span
+                className={`transition-opacity overflow-hidden duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Account Statement
+              </span>
+            </li>
+            <li className="flex gap-3 items-center">
+              <MdOutlinePerson className="text-[1.5rem] hover:text-[1.9rem]" />
+              <span
+                className={`transition-opacity overflow-hidden duration-200 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Contacts
+              </span>
+            </li>
+
+            <span className="border-t-[1px] border-[#2c3c52]"></span>
+            <div className="options">
+              <div className="flex fixed flex-col gap-[2rem]">
+                <li className="hover:bg-[#383e5a] flex items-center gap-2">
+                  <MdOutlinePayments className="text-[1.5rem] hover:text-[1.9rem]" />
+                  <span
+                    className={`transition-opacity overflow-hidden duration-200 ${
+                      isHovered ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Vender Payments
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <TbReceiptTax className="text-[1.5rem]" />
+                  <span
+                    className={`transition-opacity overflow-hidden duration-200 ${
+                      isHovered ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Tax Payments
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <PiTelegramLogoDuotone className="text-[1.5rem]" />
+                  <span
+                    className={`transition-opacity overflow-hidden duration-200 ${
+                      isHovered ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Payouts Links
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <TbReceiptTax className="text-[1.5rem]" />
+                  <span
+                    className={`transition-opacity overflow-hidden duration-200 ${
+                      isHovered ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Payroll
+                  </span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <TbReceiptTax className="text-[1.5rem]" />
+                  <span
+                    className={`transition-opacity overflow-hidden duration-200 ${
+                      isHovered ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Reports
+                  </span>
+                </li>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mainContent basis-[100%]">
+
+        {/* {Main body data} */}
+
+        <div className="mainContent  z-20 basis-[100%]">
           {/* {payout list} */}
           <div className="payout text-white bg-[#080d29] h-[5rem] px-[2rem] flex justify-between items-center">
             <div className="payoutOption">
@@ -172,7 +222,7 @@ const HomePage = () => {
             <div className="payoutAdOption  flex items-center gap-5">
               <button className="flex items-center bg-transparent border-[#428cd6] text-[#428cd6] border-[1px] px-4 py-[0.4rem] font-medium text-sm rounded-sm relative">
                 <span className="mr-2">+ PAYOUT</span>
-                <span className="border-l-[1px] border-[#2c3c52] p-2">
+                <span className="border-l-[1px] border-[#2c3c52] p-[0.4rem]">
                   <IoIosArrowDown className="ml-2" />
                 </span>
               </button>
@@ -183,7 +233,7 @@ const HomePage = () => {
                 <TbSpeakerphone className="text-[1.4rem] rotate-[-45deg]" />
               </div>
               <div className="PersonDown">
-                <BsPersonDown className="text-[1.4rem]" />
+                <TbReportSearch className="text-[1.4rem]" />
               </div>
             </div>
           </div>
@@ -227,7 +277,7 @@ const HomePage = () => {
                 </span>
                 These are test payouts and do not affect the actual balance.
                 They are used only for the purpose of integration events.{" "}
-                <span className="ml-5 text-[#658bc6]">LearnMore</span>
+                <span className="ml-5 mr-4 text-[#658bc6]">LearnMore</span>
               </div>
 
               {/* {second part} */}
@@ -259,7 +309,7 @@ const HomePage = () => {
                     </button>
                     <button className="flex items-center bg-[#4e7fff] text-white px-4 py-[0.4rem] font-medium text-sm rounded-sm relative">
                       <span className="mr-2">+ PAYOUT</span>
-                      <span className="border-l-[1px] border-red-500 p-2">
+                      <span className="border-l-[1px] border-red-500 p-[0.4rem]">
                         <IoIosArrowDown className="ml-2" />
                       </span>
                     </button>
@@ -327,7 +377,7 @@ const HomePage = () => {
 
             {/* {row/pages} */}
 
-            <div className="lowerSection border-t-[1px] border-[#2c3c52] bg-[#1d2345] h-[15rem]">
+            <div className="lowerSection border-t-[1px] border-[#2c3c52] bg-[#1d2345] h-[19rem]">
               <div className="rowPages mt-4 absolute right-[5rem]">
                 <button className="text-[#428cd6] shadow-inner border-[1px] py-[0.2rem] px-[1.2rem] border-none bg-[#2d3540]">
                   10
